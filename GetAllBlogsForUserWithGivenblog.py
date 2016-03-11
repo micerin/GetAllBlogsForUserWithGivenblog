@@ -30,7 +30,10 @@ def GetBlog(url,direction):
     titles = soup.findAll(id = 'cb_post_title_url')
     info = dict(titles[0].attrs)['href'] + '   ' + titles[0].string
     print info
+    
+    #write and flush info to disk file
     f.write(info +"\n")
+    f.flush()
 
     #parse and get pre/post page info to form urls
     scripts = soup.findAll('script')
@@ -57,6 +60,10 @@ def GetBlog(url,direction):
     soup1 = BeautifulSoup.BeautifulSoup(res1)
     links = soup1.findAll('a')
 
+    #recusively call GetBlog in two direction
+    # -1 left side
+    #  1 right side
+    #  0 only for starting seed page
     if(len(links)/2 > 1):
         if(direction == 0):
             linkl = links[1]
@@ -72,6 +79,7 @@ def GetBlog(url,direction):
     else:
         if(direction == 0):
             targetLink = links[1]
-            #todo, handle case if the page happened to be first or last one
+            #Todo, handle case if seed page happens to be first or last one
 
+#main entry
 GetBlogHistory(seedUrl, 0)
