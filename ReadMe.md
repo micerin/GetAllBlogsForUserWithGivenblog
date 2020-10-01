@@ -1,2 +1,5 @@
-This is Python script to grab all blogs for a user in cnblogs.com with one given blog.
-Tested with Python 2.7
+WELCOMES.
+THIS IS  PYTHON SCRIPT BLOG.
+for a users in  cnblogs.com
+with the blogs tested with python latest version python 3.8
+ this is best website for coders to learn coding in python.
